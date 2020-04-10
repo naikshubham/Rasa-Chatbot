@@ -35,3 +35,7 @@
 - are you a human?
 - is this a bot?
 
+## intent:personal_details
+- what is your name and DOB?
+- name and dob
+- let me know your name and DOB?
