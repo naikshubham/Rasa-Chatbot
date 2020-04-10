@@ -6,7 +6,10 @@ intents:
 - bye
 - thank
 - bot
-  
+
+entities:
+- companies
+
 responses:
     utter_noworries:
     - text: No worries!

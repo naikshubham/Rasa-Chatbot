@@ -13,3 +13,7 @@
 ## bot1
 * bot
   - utter_bot
+
+## shareprice1
+* shareprice
+  - action_shareprice

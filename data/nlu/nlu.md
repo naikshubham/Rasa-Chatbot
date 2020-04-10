@@ -39,3 +39,14 @@
 - what is your name and DOB?
 - name and dob
 - let me know your name and DOB?
+
+## intent:shareprice
+- what is the share price for [google](companies)
+- share price for [microsoft](companies)
+- show me share price for [ibm](companies)
+- get me share price for [hp](companies)
+- [facebook](companies) share price
+- what's the share price for [twitter](companies)
+
+## lookup:companies
+companies.txt
