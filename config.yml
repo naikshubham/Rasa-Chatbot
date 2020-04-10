@@ -11,7 +11,7 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 100
+    epochs: 80
   - name: EntitySynonymMapper
 
 # Configuration for Rasa Core.
@@ -23,4 +23,4 @@ policies:
   - name: FallbackPolicy
     nlu_threshold: 0.75
   - name: TEDPolicy
-    epochs: 100
+    epochs: 20

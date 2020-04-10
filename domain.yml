@@ -6,9 +6,22 @@ intents:
 - bye
 - thank
 - bot
+- shareprice
+- personal_details
 
 entities:
 - companies
+- fields
+- number
+- name
+
+slots:
+  name:
+    type: unfeaturized
+    auto_fill: false 
+  number:
+    type: unfeaturized
+    auto_fill: false
 
 responses:
     utter_noworries:
@@ -20,3 +33,16 @@ responses:
     - text: Bye!
     utter_bot:
     - text: I am a bot, powered by Rasa
+    utter_personaldetails:
+    - text: Recorded your personal details
+    utter_submit:
+    - text: Details are correct !! validated
+    utter_askname:
+    - text: what is your name and policy number, one by one?
+    utter_wrong_name:
+    - text: Invalid name
+    utter_wrong_policynumber:
+    - text: Invalid policynumber
+
+forms:
+- form_personaldetails

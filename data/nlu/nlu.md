@@ -36,9 +36,12 @@
 - is this a bot?
 
 ## intent:personal_details
-- what is your name and DOB?
-- name and dob
-- let me know your name and DOB?
+- validate my [personal details](fields)
+- validate my [policy number and name](fields)
+- i want to submit my [name and policy number](fields)
+- note down my [policynumber and name](fields)
+- validate my [policyno and name](fields)
+- check my [name and policy number](fields)
 
 ## intent:shareprice
 - what is the share price for [google](companies)
@@ -48,5 +51,5 @@
 - [facebook](companies) share price
 - what's the share price for [twitter](companies)
 
-## lookup:companies
-companies.txt
+<!-- ## lookup:companies
+companies.txt -->
