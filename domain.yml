@@ -8,6 +8,10 @@ intents:
 - bot
 - shareprice
 - personal_details
+- request_help
+- affirm
+- new
+- existing
 
 entities:
 - companies
@@ -16,6 +20,9 @@ entities:
 - name
 
 slots:
+  status:
+    type: unfeaturized
+    auto_fill: false
   name:
     type: unfeaturized
     auto_fill: false 
@@ -24,10 +31,17 @@ slots:
     auto_fill: false
 
 responses:
+    utter_recorded:
+    - text: Details saved into DB
+    utter_ask_status:
+    - text: Are you a new user or existing user?
+    utter_ask_name:
+    - text: Please enter your name
+    utter_ask_number:
+    - text : Please enter your policy number
     utter_noworries:
     - text: No worries!
     utter_greet:
-    - text: Hi
     - text: Hi! How can I help you
     utter_bye:
     - text: Bye!
@@ -37,12 +51,17 @@ responses:
     - text: Recorded your personal details
     utter_submit:
     - text: Details are correct !! validated
-    utter_askname:
-    - text: what is your name and policy number, one by one?
+    utter_wrong_input:
+    - text: Invalid input, answer with new or existing
+    utter_asknumber:
+    - text: what is your policy number?
     utter_wrong_name:
     - text: Invalid name
     utter_wrong_policynumber:
     - text: Invalid policynumber
+    utter_submit_new:
+    - text: Inserted into Database!
 
 forms:
 - form_personaldetails
+- form_statuscheck

@@ -11,6 +11,61 @@ import os
 #         return "action_shareprice"
 
 #     def fetchprice(self):
+class StatusCheck(FormAction):
+    """Form to know the status"""
+
+    def name(self) -> Text:
+        """Unique identifier of the form"""
+        return "form_statuscheck"
+    
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        """A list of required slots that the form has to fill"""
+
+        return ["status", "name", "number"]
+
+    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+        """A dictionary to map required slots to
+            - an extracted entity
+            - intent: value pairs
+            - a whole message
+            or a list of them, where a first match will be picked"""
+        
+        return {
+            "status":self.from_text(intent=None),
+            "name":self.from_text(intent=None),
+            "number":self.from_text(intent=None)
+        }
+
+    def validate_status(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """Validate name value."""
+        if value.lower() in ['new', 'existing']:
+            return {"status":value}
+        else:
+            dispatcher.utter_message(template="utter_wrong_input")
+            # validation failed, set this slot to None, meaning the
+            # user will be asked for the slot again
+            return {"status": None}
+
+    def submit(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Define what the form has to do
+            after all required slots are filled"""
+
+        # utter submit template
+        dispatcher.utter_message(template="utter_submit_new")
+        return []
+
         
 class PersonalDetails(FormAction):
     """Form to accept name and DOB"""
@@ -23,7 +78,7 @@ class PersonalDetails(FormAction):
     def required_slots(tracker: Tracker) -> List[Text]:
         """A list of required slots that the form has to fill"""
 
-        return ["name", "number"]
+        return ["name", "number", "status"]
 
     @staticmethod
     def names_db() -> List[Text]:
@@ -52,9 +107,27 @@ class PersonalDetails(FormAction):
             or a list of them, where a first match will be picked"""
         
         return {
+            "status":self.from_text(intent=None),
             "name":self.from_text(intent=None),
             "number":self.from_text(intent=None)
         }
+
+    def validate_status(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        """Validate name value."""
+        if value.lower() in ['new', 'existing']:
+            return {"status":value}
+        else:
+            dispatcher.utter_message(template="utter_wrong_input")
+            # validation failed, set this slot to None, meaning the
+            # user will be asked for the slot again
+            return {"status": None}
+
 
     def validate_name(
         self,

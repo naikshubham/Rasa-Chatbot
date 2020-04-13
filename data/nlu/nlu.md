@@ -1,3 +1,12 @@
+## intent:affirm
+- yes
+
+## intent:new
+- new
+
+## intent:existing
+- existing
+
 ## intent:greet
 - Hi
 - Hey
@@ -34,6 +43,16 @@
 - are you a bot?
 - are you a human?
 - is this a bot?
+
+## intent:request_help
+- need help
+- i need help
+- need your help
+- i need your help
+- please help me
+- validate my details
+- check my details
+- i want to validate my details
 
 ## intent:personal_details
 - validate my [personal details](fields)
